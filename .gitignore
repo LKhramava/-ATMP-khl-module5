@@ -1,0 +1,15 @@
+*.db
+
+*.log
+
+/target
+
+.vs
+
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+
+TestResults
+
