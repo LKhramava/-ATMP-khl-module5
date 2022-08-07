@@ -4,22 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTesting_MSTest
 {
     [TestClass]
-    public class MSTestAdd
+    public class MSTestAdd : MSTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [ClassInitialize]
-        public static void ClassInit(TestContext testContext)
-        {
-            //preconditions for class
-        }
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [TestMethod]
         [DataRow(3, 4, 7)]
         [DataRow(11.7, 2.3, 14)]
@@ -41,18 +27,6 @@ namespace UnitTesting_MSTest
         public void VerifyAdditionIncorrectTwoInputs()
         {
             _calculator.Add("test1", "test2");
-        }
-
-        [TestCleanup]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
-        [ClassCleanup]
-        public static void ClassClean()
-        {
-            //post conditions for class
         }
     }
 }

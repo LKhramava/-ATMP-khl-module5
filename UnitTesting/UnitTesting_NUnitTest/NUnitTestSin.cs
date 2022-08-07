@@ -6,16 +6,8 @@ namespace UnitTesting_NUnitTest
 {
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
-    public class NUnitTestSin
+    public class NUnitTestSin : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(30, 0.5)]
         [TestCase(90, 1)]
@@ -41,13 +33,6 @@ namespace UnitTesting_NUnitTest
         {
             Assert.Throws<NotFiniteNumberException>(() => _calculator.Sin("test1"));
         }
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
 }
 

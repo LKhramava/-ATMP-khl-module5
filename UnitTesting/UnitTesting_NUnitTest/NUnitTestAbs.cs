@@ -7,16 +7,8 @@ namespace UnitTesting_NUnitTest
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
 
-    public class NUnitTestAbs
+    public class NUnitTestAbs : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(-123, 123)]
         [TestCase(123, 123)]
@@ -42,14 +34,6 @@ namespace UnitTesting_NUnitTest
         {
             Assert.Throws<NotFiniteNumberException>(() => _calculator.Abs("test1"));
         }
-
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
 }
 

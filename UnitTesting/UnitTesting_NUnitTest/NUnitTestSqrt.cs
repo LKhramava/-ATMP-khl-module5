@@ -6,16 +6,8 @@ namespace UnitTesting_NUnitTest
 {
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
-    public class NUnitTestSqrt
+    public class NUnitTestSqrt : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(81, 9)]
         [TestCase(-81, double.NaN)]
@@ -38,13 +30,6 @@ namespace UnitTesting_NUnitTest
         {
             Assert.Throws<FormatException>(() => _calculator.Sqrt("test1"));
         }
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
 }
 

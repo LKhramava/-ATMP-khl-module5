@@ -4,22 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTesting_MSTest
 {
     [TestClass]
-    public class MSTestSqrt
+    public class MSTestSqrt : MSTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [ClassInitialize]
-        public static void ClassInit(TestContext testContext)
-        {
-            //preconditions for class
-        }
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [TestMethod]
         [DataRow(81, 9)]
         [DataRow(-81, double.NaN)]
@@ -42,18 +28,6 @@ namespace UnitTesting_MSTest
         public void VerifyIncorrectInput()
         {
             _calculator.Sqrt("test1");
-        }
-
-        [TestCleanup]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
-        [ClassCleanup]
-        public static void ClassClean()
-        {
-            //post conditions for class
         }
     }
 }

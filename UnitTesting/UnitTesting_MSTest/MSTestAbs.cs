@@ -6,22 +6,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTesting_MSTest
 {
     [TestClass]
-    public class MSTestAbs
+    public class MSTestAbs : MSTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [ClassInitialize]
-        public static void ClassInit(TestContext testContext)
-		{
-            //preconditions for class
-		}
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [TestMethod]
         [DataRow(-123, 123)]
         [DataRow(123, 123)]
@@ -44,18 +30,6 @@ namespace UnitTesting_MSTest
         public void VerifyIncorrectInput()
         {
             _calculator.Abs("test1");
-        }
-
-        [TestCleanup]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
-        [ClassCleanup]
-        public static void ClassClean()
-        {
-            //post conditions for class
         }
     }
 }

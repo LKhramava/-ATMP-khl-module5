@@ -6,16 +6,8 @@ namespace UnitTesting_NUnitTest
 {
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
-    public class NUnitTestCos
+    public class NUnitTestCos : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(0, 1)]
         [TestCase(60, 0.5)]
@@ -40,13 +32,6 @@ namespace UnitTesting_NUnitTest
         {
             Assert.Throws<NotFiniteNumberException>(() => _calculator.Cos("test1"));
         }
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
 }
 

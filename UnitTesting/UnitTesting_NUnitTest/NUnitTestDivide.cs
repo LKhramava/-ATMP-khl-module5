@@ -5,16 +5,8 @@ namespace UnitTesting_NUnitTest
 {
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
-    public class NUnitTestDivide
+    public class NUnitTestDivide : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(4, 4, 1)]
         [TestCase(8.28, 2.3, 3.6)]
@@ -27,13 +19,5 @@ namespace UnitTesting_NUnitTest
             var actualResult = _calculator.Divide(firstInput, secondInput);
             Assert.AreEqual(expectedResult, actualResult);
         }
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
-
 }

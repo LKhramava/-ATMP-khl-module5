@@ -8,16 +8,8 @@ namespace UnitTesting_NUnitTest
 {
     [TestFixture]
     [Parallelizable(scope: ParallelScope.Fixtures)]
-    public class NUnitTestSub
+    public class NUnitTestSub : NUnitTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [SetUp]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [Test]
         [TestCase(4, 3, 1)]
         [TestCase(12.7, 2.3, 10.4)]
@@ -39,12 +31,5 @@ namespace UnitTesting_NUnitTest
         {
             Assert.Throws<InvalidCastException>(() => _calculator.Sub("test1", "test2"));
         }
-
-        [TearDown]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
     }
 }

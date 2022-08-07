@@ -4,22 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTesting_MSTest
 {
     [TestClass]
-    public class MSTestPow
+    public class MSTestPow : MSTestBase
     {
-        private static Calculator _calculator = new Calculator();
-
-        [ClassInitialize]
-        public static void ClassInit(TestContext testContext)
-        {
-            //preconditions for class
-        }
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            //preconditions for test
-        }
-
         [TestMethod]
         [DataRow(8, 2, 64)]
         [DataRow(2.5, 3, 15.625)]
@@ -44,18 +30,6 @@ namespace UnitTesting_MSTest
         public void VerifyIncorrectInput()
         {
             _calculator.Abs("test1");
-        }
-
-        [TestCleanup]
-        public void TestClean()
-        {
-            //post conditions for test
-        }
-
-        [ClassCleanup]
-        public static void ClassClean()
-        {
-            //post conditions for class
         }
     }
 }
